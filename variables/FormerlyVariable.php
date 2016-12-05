@@ -16,6 +16,11 @@ class FormerlyVariable
 		return craft()->formerly_forms->getFormByHandle($handle);
 	}
 
+	public function submissions()
+	{
+		return craft()->elements->getCriteria('Formerly_Submission');
+	}
+
 	public function __get($prop)
 	{
 		if ($prop == 'submissions')
