@@ -202,8 +202,9 @@ class Formerly_SubmissionsService extends BaseApplicationComponent
 				}
 				else
 				{
-					$email->body     = $submission->getSummary();
-					$email->htmlBody = $email->body;
+					$breaks		 = array("<br />","<br>","<br/>");  
+					$email->htmlBody = $submission->getSummary();
+					$email->body	 = str_ireplace($breaks, "\r\n", $email->htmlBody);
 				}
 
 				if (!empty($email->body) && $sendEmail)
